@@ -51,5 +51,10 @@ namespace TodoApplication.Controllers
             }
             return RedirectToAction("Index");
         }
+        public ActionResult Details(int id)
+        {
+            var storedData = db.ListItems.Where(x => x.Id == id).FirstOrDefault();
+            return View(storedData);
+        }
     }
 }
