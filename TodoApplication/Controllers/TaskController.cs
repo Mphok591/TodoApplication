@@ -31,5 +31,12 @@ namespace TodoApplication.Controllers
             ViewBag.Message = "New";
             return View();
         }
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            var storedData = db.ListItems.Where(x => x.Id == id).FirstOrDefault();
+            return View(storedData);
+        }
+        [h]
     }
 }
