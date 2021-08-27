@@ -37,6 +37,18 @@ namespace TodoApplication.Controllers
             var storedData = db.ListItems.Where(x => x.Id == id).FirstOrDefault();
             return View(storedData);
         }
-        [h]
+        [HttpPost]
+        public ActionResult Edit(ListItem listItem)
+        {
+            var storedData = db.ListItems.Where(x => x.Id == listItem.Id).FirstOrDefault();
+            if (storedData == null)
+            {
+                storedData.Name = listItem.Name;
+                storedData.Description = listItem.Description;
+                db.SaveChanges();
+               
+            }
+            return RedirectToAction("Index");
+        }
     }
 }
