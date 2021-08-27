@@ -11,11 +11,15 @@ namespace TodoApplication.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel;
     
     public partial class ListItem
     {
         public int Id { get; set; }
+        [Required(ErrorMessage ="The name is required")]
         public string Name { get; set; }
+        [Required(ErrorMessage ="The Description is required")]
         public string Description { get; set; }
     }
 }
