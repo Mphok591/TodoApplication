@@ -11,11 +11,21 @@ namespace TodoApplication.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class UserLogin
     {
         public int Id { get; set; }
+
+        [Required(ErrorMessage ="The username is required.")]
+        [DisplayName("User Name")]
         public string UserName { get; set; }
+
+        [Required(ErrorMessage ="The password is required.")]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
+
+        public string basicLoginValidate { get; set; }
     }
 }
