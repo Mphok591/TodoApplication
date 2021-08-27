@@ -56,5 +56,13 @@ namespace TodoApplication.Controllers
             var storedData = db.ListItems.Where(x => x.Id == id).FirstOrDefault();
             return View(storedData);
         }
+        public ActionResult Delete(int id)
+        {
+            var storedData = db.ListItems.Where(x => x.Id == id).FirstOrDefault();
+            db.ListItems.Remove(storedData);
+            db.SaveChanges();
+            ViewBag.Message = "Item deleted successfully";
+            return RedirectToAction("Index");
+        }
     }
 }
