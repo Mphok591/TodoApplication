@@ -11,6 +11,7 @@ namespace TodoApplication.Controllers
     {
         private TDatabaseEntities db = new TDatabaseEntities();
         // GET: Task
+        [HttpGet]
         public ActionResult Index()
         {
             var _taskList = db.ListItems.ToList();
