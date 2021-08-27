@@ -17,5 +17,19 @@ namespace TodoApplication.Controllers
             var _taskList = db.ListItems.ToList();
             return View(_taskList);
         }
+
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Create(ListItem listItem)
+        {
+            db.ListItems.Add(listItem);
+            db.SaveChanges();
+            ViewBag.Message = "New";
+            return View();
+        }
     }
 }
