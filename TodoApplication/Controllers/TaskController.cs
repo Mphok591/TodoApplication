@@ -29,7 +29,7 @@ namespace TodoApplication.Controllers
             db.ListItems.Add(listItem);
             db.SaveChanges();
             ViewBag.Message = "New";
-            return View();
+            return RedirectToAction("Index");
         }
         [HttpGet]
         public ActionResult Edit(int id)
