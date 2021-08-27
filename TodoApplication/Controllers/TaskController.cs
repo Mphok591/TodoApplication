@@ -41,7 +41,7 @@ namespace TodoApplication.Controllers
         public ActionResult Edit(ListItem listItem)
         {
             var storedData = db.ListItems.Where(x => x.Id == listItem.Id).FirstOrDefault();
-            if (storedData == null)
+            if (storedData != null)
             {
                 storedData.Name = listItem.Name;
                 storedData.Description = listItem.Description;
