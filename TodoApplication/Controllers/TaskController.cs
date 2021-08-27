@@ -46,6 +46,7 @@ namespace TodoApplication.Controllers
                 storedData.Name = listItem.Name;
                 storedData.Description = listItem.Description;
                 db.SaveChanges();
+                ViewBag.Message = "Done";
                
             }
             return RedirectToAction("Index");
