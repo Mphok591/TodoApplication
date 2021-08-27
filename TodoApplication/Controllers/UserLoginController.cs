@@ -30,7 +30,7 @@ namespace TodoApplication.Controllers
                 else
                 {
                     Session["Id"] = loginDetails.Id;
-                    return RedirectToAction("Index", "UserLogin");
+                    return RedirectToAction("Index", "Task");
                 }
             }
         }
